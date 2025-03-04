@@ -1,3 +1,4 @@
+```bash
 test@bioinfo_docker:~/share$ wc -l test_command.gtf
 8 test_command.gtf
 test@bioinfo_docker:~/share$ wc -c test_command.gtf
@@ -47,6 +48,7 @@ chr_IV  transcript      ensembl 3762    836     .       +       .       gene_id 
 
 
 test@bioinfo_docker:~/share$ ls -hl test_command.gtf
+'''
 -rwxrwxrwx 1 test test 636 Mar  4 07:05 test_command.gtf
 test@bioinfo_docker:~/share$ chmod 774 test_command.gtf
 test@bioinfo_docker:~/share$ ls -hl test_command.gtf
