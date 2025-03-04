@@ -18,4 +18,11 @@ test@bioinfo_docker:~/linux$ grep -v '^#' 1.gtf | awk '$1 == "IV" {print $3}' | 
     853 start_codon
     853 stop_codon
     886 transcript
+
+test@bioinfo_docker:~/linux$ cat 1.gtf | awk '$3 =="CDS" && $1 !="IV" && $7 =="-"{L=$5-$4 + 1;}END{print L;}'
+297
+
+test@bioinfo_docker:~/linux$ cat 1.gtf | awk '$1 != "IV" && $7 == "-" && $3 == "CDS" {length = $5 - $4 + 1; print length
+}' | sort | tail -2
+awk: line 1: syntax error at or near =
 ```
