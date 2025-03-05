@@ -19,10 +19,40 @@ test@bioinfo_docker:~/linux$ grep -v '^#' 1.gtf | awk '$1 == "IV" {print $3}' | 
     853 stop_codon
     886 transcript
 
+##############################
 test@bioinfo_docker:~/linux$ cat 1.gtf | awk '$3 =="CDS" && $1 !="IV" && $7 =="-"{L=$5-$4 + 1;}END{print L;}'
 297
 
 test@bioinfo_docker:~/linux$ cat 1.gtf | awk '$1 != "IV" && $7 == "-" && $3 == "CDS" {length = $5 - $4 + 1; print length
 }' | sort | tail -2
 awk: line 1: syntax error at or near =
+#######################################
+#上面这两个命令我没查明白为什么跑不通
+
+test@bioinfo_docker:~/linux$ cat 1.gtf | awk '$3 =="CDS" && $1 !="IV" && $7 =="-"{L = $5-$4+1; print L}' | sort -n | tail -2
+12276
+14730
+
+test@bioinfo_docker:~/linux$ cat 1.gtf | awk '$1 =="XV" && $3 =="gene"{L = $5-$4+1; print $10, L}' | sort -k 2 -n | tail -5
+"YOR142W-B"; 5269
+"YOR192C-B"; 5314
+"YOR343W-B"; 5314
+"YOR396W"; 5391
+"YOL081W"; 9240
+
+
+test@bioinfo_docker:~/linux$ cat 1.gtf | awk -F "\t" '{print NF}' | sort -n | tail
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+test@bioinfo_docker:~/linux$ cat 1.gtf | awk -F "\t" '{print NF}' | sort -n | uniq -c
+      5 1
+  42247 9
 ```
