@@ -61,3 +61,71 @@ reads的mapping quality（映射质量）是SAM/BAM文件中的一个字段，�
 
 ## 3.4
 可以
+
+
+# 4
+```bash
+root@bioinfo_docker:/home/test/mapping# wget http://hgdownload.soe.ucsc.edu/goldenPath/sacCer3/bigZips/sacCer3.fa.gz
+--2025-03-31 02:42:46--  http://hgdownload.soe.ucsc.edu/goldenPath/sacCer3/bigZips/sacCer3.fa.gz
+Resolving hgdownload.soe.ucsc.edu (hgdownload.soe.ucsc.edu)... 128.114.119.163
+Connecting to hgdownload.soe.ucsc.edu (hgdownload.soe.ucsc.edu)|128.114.119.163|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3820548 (3.6M) [application/x-gzip]
+Saving to: ‘sacCer3.fa.gz’
+
+sacCer3.fa.gz                 100%[=================================================>]   3.64M  --.-KB/s    in 0.1s
+
+2025-03-31 02:42:47 (36.5 MB/s) - ‘sacCer3.fa.gz’ saved [3820548/3820548]
+
+root@bioinfo_docker:/home/test/mapping# gunzip sacCer3.fa.gz
+gzip: sacCer3.fa already exists; do you wish to overwrite (y or n)? y
+
+root@bioinfo_docker:/home/test/mapping# ./bwa/bwa index sacCer3.fa
+[bwa_index] Pack FASTA... 0.13 sec
+[bwa_index] Construct BWT for the packed sequence...
+[bwa_index] 5.64 seconds elapse.
+[bwa_index] Update BWT... 0.14 sec
+[bwa_index] Pack forward-only FASTA... 0.07 sec
+[bwa_index] Construct SA from BWT and Occ... 1.41 sec
+[main] Version: 0.7.19-r1273
+[main] CMD: ./bwa/bwa index sacCer3.fa
+[main] Real time: 7.445 sec; CPU: 7.387 sec
+root@bioinfo_docker:/home/test/mapping# ls -la
+total 43488
+drwxr-xr-x 1 test test     4096 Mar 31 02:44 .
+drwxr-xr-x 1 test test     4096 Mar 25 11:11 ..
+drwxr-xr-x 2 test test     4096 Sep 24  2013 BowtieIndex
+drwxr-xr-x 7 test test     4096 Sep 25  2013 bowtie-src
+drwxr-xr-x 5 root root     4096 Mar 28 09:20 bwa
+drwxr-xr-x 3 test test     4096 Oct 23  2017 bwa-0.7.17
+-rw-r--r-- 1 test test   190908 Nov  7  2017 bwa-0.7.17.tar.bz2
+-rw-r--r-- 1 test test   456335 Mar 25 10:21 bwa.git
+-rw-r--r-- 1 test test      233 Mar 25 10:30 dockerfile
+-rwxr-xr-x 1 test test    81890 Sep 24  2013 e_coli_1000_1.fq
+-rw-r--r-- 1 test test    29191 Nov  3  2019 e_coli_500.bed
+-rwxrw-r-- 1 test test    41000 Nov  2  2019 e_coli_500.fq
+-rw-r--r-- 1 test test    77783 Nov  2  2019 e_coli_500.sam
+-rw-r--r-- 1 root root 12400379 Jan 23  2020 sacCer3.fa
+-rw-r--r-- 1 root root       14 Mar 31 02:44 sacCer3.fa.amb
+-rw-r--r-- 1 root root      563 Mar 31 02:44 sacCer3.fa.ann
+-rw-r--r-- 1 root root 12157188 Mar 31 02:44 sacCer3.fa.bwt
+-rw-r--r-- 1 root root  3039278 Mar 31 02:44 sacCer3.fa.pac
+-rw-r--r-- 1 root root  6078608 Mar 31 02:44 sacCer3.fa.sa
+-rwxr-xr-x 1 test test     1207 Sep 25  2013 sam2bed.pl
+-rw-r--r-- 1 test test  9150483 Jan 25  2024 samtools-1.19.2.tar.bz2
+-rw-r--r-- 1 test test    81783 Nov  3  2019 THA1.bed
+-rwxr-xr-x 1 test test    90650 Sep 24  2013 THA1.fa
+-rw-r--r-- 1 test test   284517 Nov  3  2019 THA1.sam
+-rw-r--r-- 1 test test    41033 Nov  3  2019 THA2.bed
+-rwxrw-r-- 1 test test    45627 Nov  2  2019 THA2.fa
+-rw-r--r-- 1 test test   142663 Mar 25 05:42 THA2.sam
+-rw-r--r-- 1 test test    32324 Nov  3  2019 THA2_V.bed
+-rw-r--r-- 1 test test     6086 Nov  3  2019 THA2_XII.bed
+root@bioinfo_docker:/home/test/mapping# ./bwa/bwa mem sacCer3.fa THA2.fa > THA2-bwa.sam
+[M::bwa_idx_load_from_disk] read 0 ALT contigs
+[M::process] read 1250 sequences (31877 bp)...
+[M::mem_process_seqs] Processed 1250 reads in 0.012 CPU sec, 0.017 real sec
+[main] Version: 0.7.19-r1273
+[main] CMD: ./bwa/bwa mem sacCer3.fa THA2.fa
+[main] Real time: 0.074 sec; CPU: 0.065 sec
+```
