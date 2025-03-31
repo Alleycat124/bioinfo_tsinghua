@@ -129,3 +129,91 @@ root@bioinfo_docker:/home/test/mapping# ./bwa/bwa mem sacCer3.fa THA2.fa > THA2-
 [main] CMD: ./bwa/bwa mem sacCer3.fa THA2.fa
 [main] Real time: 0.074 sec; CPU: 0.065 sec
 ```
+
+
+# Genome Browser
+
+```bash
+root@bioinfo_docker:/home/test/mapping# ./bwa/bwa index sacCer3.fa
+[bwa_index] Pack FASTA... 0.21 sec
+[bwa_index] Construct BWT for the packed sequence...
+[bwa_index] 5.57 seconds elapse.
+[bwa_index] Update BWT... 0.18 sec
+[bwa_index] Pack forward-only FASTA... 0.07 sec
+[bwa_index] Construct SA from BWT and Occ... 1.50 sec
+[main] Version: 0.7.19-r1273
+[main] CMD: ./bwa/bwa index sacCer3.fa
+[main] Real time: 7.601 sec; CPU: 7.539 sec
+root@bioinfo_docker:/home/test/mapping# ./bwa/bwa mem sacCer3.fa THA2.fa > THA2-bwa.sam
+[M::bwa_idx_load_from_disk] read 0 ALT contigs
+[M::process] read 1250 sequences (31877 bp)...
+[M::mem_process_seqs] Processed 1250 reads in 0.008 CPU sec, 0.015 real sec
+[main] Version: 0.7.19-r1273
+[main] CMD: ./bwa/bwa mem sacCer3.fa THA2.fa
+[main] Real time: 0.036 sec; CPU: 0.028 sec
+root@bioinfo_docker:/home/test/mapping# ./bwa/bwa mem sacCer3.fa THA2.fa > THA2-bwa.sam
+[M::bwa_idx_load_from_disk] read 0 ALT contigs
+[M::process] read 1250 sequences (31877 bp)...
+[M::mem_process_seqs] Processed 1250 reads in 0.009 CPU sec, 0.015 real sec
+[main] Version: 0.7.19-r1273
+[main] CMD: ./bwa/bwa mem sacCer3.fa THA2.fa
+[main] Real time: 0.103 sec; CPU: 0.094 sec
+root@bioinfo_docker:/home/test/mapping# samtools-1.19.2/samtools view -bS THA2-bwa.sam > THA2-bwa.bam
+root@bioinfo_docker:/home/test/mapping# head THA2-bwa.sam
+@HD     VN:1.5  SO:unsorted     GO:query
+@SQ     SN:chrI LN:230218
+@SQ     SN:chrII        LN:813184
+@SQ     SN:chrIII       LN:316620
+@SQ     SN:chrIV        LN:1531933
+@SQ     SN:chrIX        LN:439888
+@SQ     SN:chrV LN:576874
+@SQ     SN:chrVI        LN:270161
+@SQ     SN:chrVII       LN:1090940
+@SQ     SN:chrVIII      LN:562643
+root@bioinfo_docker:/home/test/mapping# head THA2-bwa.bam
+�BC�U�KN�@�
+           B`<�x(
+                 (��1���������@�Z^�C�1��!�HYD�rp�9@X%�$۴{�=��ծ����ڵ��Y8Yh�;����:g��'���ܥٗf{p�
+                                                                                             ���y9G�#QU�,A��d�����*d$  ��HL)����\PR{l�fs",k�ӇI*|V��1�8�\6��'�����wͥ��{�C��!̉�wz��(�;JGn��������p��R�dt;_�j�ݷX��.��lM�m�/҉�␦
+                                                                                                   ���<m57��>�^����<
+                                                                                                                    "�v�␦Vl��?K������2����l)
+(����T�<�#��2����'/�����?�<�/�����<��oU���7��k��f��������յ��[k}�(�?^?ϊ��(>Y���G[4��|i��"(�vA�������׿R�O?�v���-zK�C��1NyW�{����۷�����>J���P�}��7K}kg��p�T�K�␦����_ځ׷��w�2���l8߀�����#ZU�_v~���gnA'm����.���!�����ngF$4���ey����n!즨�6�������������5����y���ه��*��-p��L�F�g]�Kd�KI�/����[ܖq�P{Sj��������O�.�����+Ko������gTBԪ�
+                                                                            u�D�7쿹���[쁱�X�J�r�!��@?����/K�T�U ��C�'��D�s�
+
+   ���|
+       �wfРK[��s�9�4
+xa��Κ���6w����n@��@'�r�N�Qt(�>WϹ�25��X��)�ΆLP�|�~���>S<{�_�������-/�
+                                                                    /
+��>tP/$G���Sh��6�y�!����f��d>�Ȉ����z�<~S�NMS|��NY����L<'�g_�����@�}���S��K�6Ь�́��V����;sd��%JmOE)O�
+                 �-�Ǥ���f~���n�!~�ő����N�v%�ٙ{^�d���|�z˙�30�"�`���+s"摁+O�mq.N�oҟzF?���gųw~�5�ΦO�Z��-Y��d<��!��Ϧn�U�~N�tfHpK^����Ly��3� ���yO��>�␦y��
+�Wv@�-hǠ�\p8[����0��]F��Hi�ja�Z��[קع�w��6��ȓΑ��S�K˨tf�3���
+                                  /C\��d�,ި�
+�e�22:�
+       ���?ɐ_�-$������'�4������/�̟̕\^�:
+��b�'�H�J������/>��"/��IN��`Ӂ�K���B/[d�����[҈�
+                                              �����|�.b[��e���^�Dw5I�<�sJg���LYB��C��
+���Nl��"�VĈ����9EL����[{/t�E�YwCZ��~p��ĩ<_��vAv��/F[$�]��/Ur\KmX��Sn����\9�6)���r;�&i�/���H���[F'U�`�>;���HWO�y��
+F'��Y�r�,��V�_Tƾ��o%�e��5��n���;6r���(y�Cd�����<d����&]32���BeM���4w��ed��@�;��z���:M�>]D���9.BƑ|dc�
+                        Mf�h�8}�w~�&n�����&:?"קk!�>X�uO�-�8ʆܮ!�ɻ��k�O��9t{��n�3(�6����L]
+�s;��xf`Gn;}�j�х��E     ��X;�;v��Б�M                                                    Qm�J�؏�f�ڑ�yD|>e��n'%EB���� �|
+ȟ6�l�1x��␦f�Z�
+              ���
+                 ��
+2=Ե�B   ��`�˞څ�C+�0֔H���e��������GV&��tC���ݠ_�(��^xHH�6�,�
+                                                          d꺉��/�W��E��Փ�����N_�¿Iݳ��D_3<�[���G�a�C�͊�-�=r�O}����[�/-|>[��Y�v
+      ��#�J�ʬR�Ǎ@��У�Y%����uk9W�
+                                ������w�ή.��W��o��_��U�*��Hif��
+                                                               ������2�"7��M��E,|�T���C����dVIчd�M&�Cø����==r4�b��eT��S
+                                                                                                                       �|��΁c�$E���#dt�<�F~y����n�/����\�-��`e�%;���ʦd�$��*�Q�r:�γ���a���q�)�ab��;c%��pG �t�Ņ*�'�a~�
+~����� Mu�C����2O       d @�t��#Zx9"�ЂO/QΌ��������A���}&ME�i�pr��� S���+�P
+␦�-���,�/;{ [�lU=y|���/�D����*�I��2���7Pj��˸���
+root@bioinfo_docker:/home/test/mapping# samtools-1.19.2/samtools sort THA2-bwa.bam -o THA2-bwa.sorted.bam
+root@bioinfo_docker:/home/test/mapping# samtools-1.19.2/samtools index THA2-bwa.sorted.bam
+root@bioinfo_docker:/home/test/mapping# cp THA2-bwa.sorted.bam THA2-bwa.sorted.bam.bai ../share
+```
+
+不知道为什么bowtie得到的结果导入IGV中没有任何显示
+选择了NOT5基因展示
+![作业4截图2](https://github.com/user-attachments/assets/f209b20c-81c6-4e75-a071-5da582d42ea6)
+
+
