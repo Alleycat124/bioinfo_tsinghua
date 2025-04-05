@@ -12,4 +12,67 @@ Fraction of reads failed to determine: 0.0315
 Fraction of reads explained by "1++,1--,2+-,2-+": 0.4769
 Fraction of reads explained by "1+-,1-+,2++,2--": 0.4916
 
+
+root@featurecount_docker:/home/test# /home/software/subread-2.0.3-source/bin/featureCounts \
+> -s 0 -p -t exon -g gene_id \
+> -a GTF/Arabidopsis_thaliana.TAIR10.34.gtf \
+> -o result/Shape02.featurecounts.exon.txt bam/Shape02.bam
+
+        ==========     _____ _    _ ____  _____  ______          _____
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+          v2.0.3
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 1 BAM file                                       ||
+||                                                                            ||
+||                           Shape02.bam                                      ||
+||                                                                            ||
+||             Output file : Shape02.featurecounts.exon.txt                   ||
+||                 Summary : Shape02.featurecounts.exon.txt.summary           ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : no                                               ||
+||              Annotation : Arabidopsis_thaliana.TAIR10.34.gtf (GTF)         ||
+||      Dir for temp files : result                                           ||
+||                                                                            ||
+||                 Threads : 1                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file Arabidopsis_thaliana.TAIR10.34.gtf ...                ||
+||    Features : 313952                                                       ||
+||    Meta-features : 32833                                                   ||
+||    Chromosomes/contigs : 7                                                 ||
+||                                                                            ||
+|| Process BAM file Shape02.bam...                                            ||
+||    Paired-end reads are included.                                          ||
+||    The reads are assigned on the single-end mode.                          ||
+||    Total alignments : 2730443                                              ||
+||    Successfully assigned alignments : 2559170 (93.7%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "result/Shape02.featurec  ||
+|| ounts.exon.txt.summary"                                                    ||
+||                                                                            ||
+\\============================================================================//
+
+root@featurecount_docker:/home/test# cat result/Shape02.featurecounts.exon.txt | awk '$1 == "AT1G09530" {print $0}'
+AT1G09530       1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1   3075768;3075768;3075768;3076401;3076401;3076401;3076459;3076459;3076459;3077173;3077173;3077173;3077173;3077378;3077378;3077378;3077378;3077378;3077378;3078346;3078346;3078346;3078346;3078346;3078346;3078545;3078545;3078545;3078545;3078545;3078545;3078843;3078843;3078843;3078843;3078843;3078843;3078984;3078984;3078984;3078984;3078984;3078984 3075852;3075852;3075852;3077286;3076808;3076748;3076808;3077286;3076748;3077286;3077286;3077286;3077286;3078257;3078257;3078257;3078257;3078257;3078257;3078453;3078453;3078453;3078453;3078453;3078453;3078610;3078610;3078610;3078610;3078610;3078610;3078908;3078908;3078908;3078908;3078908;3078908;3079544;3079544;3079544;3079654;3079654;3079654 +;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+;+   2762    86
 ```
+所以共43个counts
+
+
+# 4
