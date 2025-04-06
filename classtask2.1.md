@@ -1,4 +1,22 @@
+# 1
+常见的归一化方法
 
+| 方法 | 描述 | 考虑因素 | 使用场景 | 公式 |
+| :---: | :---: | :---: | :---: | :---: |
+| **RPM or CPM**(reads/counts per million mapped reads) | 按照reads总数缩放计数 | 测序深度 | 同一样本组重复之间的基因计数比较；不适用于样本内比较或差异表达分析 | $RPMorCPM = \frac{Reads Number of a Gene \times 10^6}{Total Number of Mapped Reads}$ |
+| **TPM**(transcripts per kilobase million) | 每百万读取reads比对的转录本长度(kb)计数 | 测序深度与基因长度 | 样本内或同一样本组样本之间的基因计数比较；不适用于差异表达分析 | $TPM = \frac{RPKM}{\sum RPKM} \times 10^6$ |
+| **RPKM/FPKM**(reads/fragments per kilobase per million reads/fragments mapped | 类似于TPM | 测序深度与基因长度 | 同一样本组重复之间的基因计数比较；不适用于样本内比较或差异表达分析 | $RPKMorFPKM = \frac{Reads/Frgaments Number of Gene \times 10^3 \times 10^6}{Total Number of Mapped Reads \times Gene Length in bp}$ |
+| **DESeq2's median of ratios** | 计数除以特定于样本的大小因子，该因子由基因计数相对于每个基因的几何平均值的中位数比率确定 | 测序深度和RNA组成 | 同一样本组重复之间的基因计数比较；不适用于样本内比较或差异表达分析 | 参考下面博客内内容 |
+| **EdgeR's trimmed mean of M values(TMM)** | 使用样本之间对数表达比率的加权修剪平均值 | 测序深度和RNA组成 | 样品之间的基因计数比较和差异表达分析，不适用样本内比较 | 公式较复杂，可参考下面博客内内容 |
+
+
+很好的总结博客：https://blog.csdn.net/weixin_46128755/article/details/126283762
+
+
+# 2
+E
+D
+A
 
 # 3
 ```bash
