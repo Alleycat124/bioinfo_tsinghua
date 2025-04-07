@@ -168,5 +168,7 @@ pheatmap(z.scores,
          show_colnames = F
          )
 ```
+
+从热图看，COAD和READ更像
 <img width="1440" alt="上机2 1_heatmap_1" src="https://github.com/user-attachments/assets/d6bd365c-305c-494b-9efe-708efe177d11" />
 
