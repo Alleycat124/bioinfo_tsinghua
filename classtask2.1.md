@@ -94,3 +94,79 @@ AT1G09530       1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;
 
 
 # 4
+
+
+一个bash文件merge.sh
+```bash
+#!/bin/bash
+
+# 设置工作目录
+WORK_DIR="tumor-transcriptome-demo"
+
+# 合并所有文件
+echo "Geneid,Sample,Count" > merged_counts.csv
+
+# 遍历每个文件夹
+for folder in COAD ESCA READ; do
+    i=1
+    for file in "$WORK_DIR/$folder"/*.txt; do
+        # 提取文件名作为样本名
+        sample="${folder}_${i}"
+        i=$((i+1))
+        # 提取基因ID和计数数据
+        awk -v sample="$sample" 'NR>2 {print $1 "," sample "," $7}' "$file" >> merged_counts.csv
+    done
+done
+
+echo "合并完成，结果保存在 merged_counts.csv"
+```
+
+```bash
+bash merge.sh  #执行bash文件
+```
+
+转用R语言
+```R
+library(tidyverse)
+library(pheatmap)
+library(reshape2)
+library(edgeR)
+
+merged_data <- read.csv("E:/LiuXing/bioinfo_KunlinDu_featurecount_share/merged_counts.csv")
+
+
+head(merged_data)
+counts = dcast(merged_data, formula = Geneid~Sample)
+head(counts)
+dim(counts)
+counts[is.na(counts)] <- 0
+write.csv(counts, file = 'E:/LiuXing/bioinfo_KunlinDu_featurecount_share/merged_reshaped_counts_1.csv')
+
+
+
+# CPM.matrix <- t(1000000*t(counts)/colSums(counts))
+# log10.CPM.matrix <- log10(CPM.matrix+1) # 1 为pseudocount, 避免count为0时对数未定义的情况 
+
+y <- DGEList(counts = counts) # 定义edgeR用于存储基因表达信息的DGEList对象
+CPM.matrix <- edgeR::cpm(y,log=F) # 计算CPM
+log10.CPM.matrix <- log10(CPM.matrix+1) # 1 为pseudocount, 避免count为0时对数未定义的情况 
+
+z.scores <- (log10.CPM.matrix - rowMeans(log10.CPM.matrix))/apply(log10.CPM.matrix,1,sd)
+# apply(log10.CPM.matrix,1,sd)表示计算每行(1表示行,2表示列)的标准差(sd函数)
+# rowMeans(log10.CPM.matrix)和apply(log10.CPM.matrix,1,mean)效果是一样的
+
+is.na(z.scores)[which()]
+z.scores[is.na(z.scores)] <- 0
+dim(z.scores)
+class(z.scores)
+
+pheatmap(z.scores,
+         scale = "row",
+         cluster_rows = T,
+         cluster_cols = F,
+         show_rownames = T,
+         show_colnames = F
+         )
+```
+<img width="1440" alt="上机2 1_heatmap_1" src="https://github.com/user-attachments/assets/d6bd365c-305c-494b-9efe-708efe177d11" />
+
