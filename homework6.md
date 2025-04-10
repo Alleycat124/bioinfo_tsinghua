@@ -28,8 +28,22 @@ root@bioinfo_docker:/home/test/samtools_bedtools# samtools flagstat COAD.ACTB.ba
 0 + 0 with mate mapped to a different chr (mapQ>=5)
 ```
 
+# 2
+Secondary Alignment（次要比对）指的是一个读取（read）在比对过程中，可能匹配到多个位置的情况。这种情况通常发生在以下几种情况：
+
+**重复区域**：如果某个基因组区域有许多相似的序列，比如重复序列或转座子，那么同一条读取可能会比对到这些多个位置。这时，软件会给出一个主要比对和多个次要比对。
+
+**多重比对**：对于某些读取，由于结构变异或参考基因组的特性，它们可能符合多个位置的比对条件，因此被标记为次要比对，这通常也表示这些读取在该位点不是唯一的。
 
 
+**提供的文件中有4923个secondary alignment**
+代码如下，与第一题中代码匹配
+
+```bash
+root@bioinfo_docker:/home/test/samtools_bedtools# samtools view -f 256 COAD.ACTB.bam |
+wc -l
+4923
+```
 
 
 
