@@ -101,6 +101,26 @@ CTGCCCTGAGGCACTCTTCCAGCCTTCCTTCCTGGGCATGGAGTCCTGTGGCATCCACGAAACTACCTTCAACTCC
 ```
 
 
+# 4
+```bash
+root@bioinfo_docker:/home/test/samtools_bedtools# bedtools genomecov -ibam COAD.ACTB.bam -bga -split -g ACTB_genes.bed > ACTB_coverage.bedgraph
+
+*****
+*****WARNING: Genome (-g) files are ignored when BAM input is provided.
+*****
+root@bioinfo_docker:/home/test/samtools_bedtools# cat ACTB_coverage.bedgraph | head
+chr7    0       5045717 0
+chr7    5045717 5045731 1
+chr7    5045731 5058689 0
+chr7    5058689 5058695 1
+chr7    5058695 5072542 0
+chr7    5072542 5072543 2
+chr7    5072543 5072554 5
+chr7    5072554 5073147 0
+chr7    5073147 5073157 1
+chr7    5073157 5077437 0
+```
+
 人类基因组大小为3.1Gb，基本组成为24条染色体+线粒体  
 更进一步的
 ![](https://i-blog.csdnimg.cn/blog_migrate/30732d349bde677a8dbf849665f41232.png)
