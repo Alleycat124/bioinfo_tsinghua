@@ -209,5 +209,16 @@ Small non-coding RNA genes	7567
 
 更详细的，有：  
 
-| Biotype | genes | transcripts |
---------------------------------
+| Biotype | genes | transcripts | function |
+|:-------:|------:|:-----------:|:--------:|
+|lncRNA|16888|47055|通常大于200个核苷酸，涉及基因调控、染色质重塑和转录调节|
+|miRNA|1879|1879|通过与靶mRNA结合来抑制基因表达|
+|misc_RNA|2212|2212|通常用于包含那些功能尚不清楚或未定义的非编码RNA分子|
+|Mt_rRNA|2|2|线粒体rRNA|
+|Mt_tRNA|22|22|线粒体tRNA|
+|rRNA|47|47|核糖体RNA|
+|scaRNA|49|49| |
+|scRNA|1|1| |
+|snoRNA|943|943|主要参与rRNA的修饰和加工|
+|snRNA|1901|1901|参与RNA剪接过程，形成spliceosome复合体|
+|sRNA|5|5| |
