@@ -121,6 +121,93 @@ chr7    5073147 5073157 1
 chr7    5073157 5077437 0
 ```
 
+
+
+# PPT问题
 人类基因组大小为3.1Gb，基本组成为24条染色体+线粒体  
+Name：GCF_000001405.40-RS_2024_08  
+更新日期：Aug 23, 2024  
+Genes：59715  
+Protein-coding：20078  
+
+
 更进一步的
 ![](https://i-blog.csdnimg.cn/blog_migrate/30732d349bde677a8dbf849665f41232.png)
+
+其中的基本组成
+
+Feature	GRCh38.p14  
+	
+Genes and pseudogenes 	59,715  
+  protein-coding	20,078  
+  non-coding	22,107  
+  Transcribed pseudogenes	1,246  
+  Non-transcribed pseudogenes	15,813  
+  genes with variants	20,252  
+  Immunoglobulin/T-cell receptor gene segments	399  
+  other	72  
+  placed on multiple assembly-units 	4,458  
+mRNAs	136,269  
+  fully-supported	133,012  
+  with > 5% ab initio 	1,245  
+  partial	33  
+  with filled gap(s) 	0  
+  placed on multiple assembly-units 	4,301  
+  known RefSeq (NM_) 	67,405  
+  model RefSeq (XM_)	68,864  
+non-coding RNAs 	49,289  
+  fully-supported	46,182  
+  with > 5% ab initio 	0  
+  partial	8  
+  with filled gap(s) 	0  
+  placed on multiple assembly-units 	1,092  
+  known RefSeq (NR_) 	21,717  
+  model RefSeq (XR_) 	25,574  
+pseudo transcripts 	1,807  
+  fully-supported	1,787  
+  with > 5% ab initio 	0  
+  partial	0  
+  with filled gap(s) 	0  
+  placed on multiple assembly-units 	na  
+  known RefSeq (NR_) 	1,644  
+  model RefSeq (XR_) 	163  
+CDSs	136,859  
+  fully-supported	133,012  
+  with > 5% ab initio 	2,023  
+  partial	523  
+  with major correction(s) 	45  
+  known RefSeq (NP_) 	67,405  
+  model RefSeq (XP_) 	68,877  
+  
+![作业6](https://github.com/user-attachments/assets/815a8ea6-9920-4488-8b31-1c443a45fe5b)
+
+
+根据GENCODE中Statistics about the GENCODE Release 38 (GRCh38.p13)
+(https://www.gencodegenes.org/human/stats_38.html)
+
+更详细的版本信息：
+# Assembly name:  GRCh38.p13  
+# Description:    Genome Reference Consortium Human Build 38 patch release 13 (GRCh38.p13)  
+# Organism name:  Homo sapiens (human)  
+# Taxid:          9606  
+# BioProject:     PRJNA31257  
+# Submitter:      Genome Reference Consortium  
+# Date:           2019-02-28  
+# Synonyms:       hg38	
+# Assembly type:  haploid-with-alt-loci  
+# Release type:   patch  
+# Assembly level: Chromosome  
+# Genome representation: full  
+# GenBank assembly accession: GCA_000001405.28  
+# RefSeq assembly accession: GCF_000001405.39  
+# RefSeq assembly and GenBank assemblies identical: no  
+
+现在基因组中的 非编码RNA基因有：  
+Long non-coding RNA genes	17944  
+Small non-coding RNA genes	7567  
+
+
+更详细的，有：  
+
+| Biotype | genes | transcripts |
+--------------------------------
