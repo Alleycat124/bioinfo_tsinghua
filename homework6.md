@@ -185,22 +185,22 @@ CDSs	136,859
 根据GENCODE中Statistics about the GENCODE Release 38 (GRCh38.p13)
 (https://www.gencodegenes.org/human/stats_38.html)
 
-更详细的版本信息：
-# Assembly name:  GRCh38.p13  
-# Description:    Genome Reference Consortium Human Build 38 patch release 13 (GRCh38.p13)  
-# Organism name:  Homo sapiens (human)  
-# Taxid:          9606  
-# BioProject:     PRJNA31257  
-# Submitter:      Genome Reference Consortium  
-# Date:           2019-02-28  
-# Synonyms:       hg38	
-# Assembly type:  haploid-with-alt-loci  
-# Release type:   patch  
-# Assembly level: Chromosome  
-# Genome representation: full  
-# GenBank assembly accession: GCA_000001405.28  
-# RefSeq assembly accession: GCF_000001405.39  
-# RefSeq assembly and GenBank assemblies identical: no  
+更详细的版本信息：  
+Assembly name:  GRCh38.p13  
+Description:    Genome Reference Consortium Human Build 38 patch release 13 (GRCh38.p13)  
+Organism name:  Homo sapiens (human)  
+Taxid:          9606  
+BioProject:     PRJNA31257  
+Submitter:      Genome Reference Consortium  
+Date:           2019-02-28  
+Synonyms:       hg38	
+Assembly type:  haploid-with-alt-loci  
+Release type:   patch  
+Assembly level: Chromosome  
+Genome representation: full  
+GenBank assembly accession: GCA_000001405.28  
+RefSeq assembly accession: GCF_000001405.39  
+RefSeq assembly and GenBank assemblies identical: no  
 
 现在基因组中的 非编码RNA基因有：  
 Long non-coding RNA genes	17944  
@@ -217,8 +217,9 @@ Small non-coding RNA genes	7567
 |Mt_rRNA|2|2|线粒体rRNA|
 |Mt_tRNA|22|22|线粒体tRNA|
 |rRNA|47|47|核糖体RNA|
-|scaRNA|49|49| |
-|scRNA|1|1| |
+|scaRNA|49|49|主要在Cajal body中参与剪接体RNA的甲基化|
+|scRNA|1|1|small cytoplasmic RNA 主要位于细胞质内，种类较多，参与蛋白的合成和运输|
 |snoRNA|943|943|主要参与rRNA的修饰和加工|
-|snRNA|1901|1901|参与RNA剪接过程，形成spliceosome复合体|
-|sRNA|5|5| |
+|snRNA|1901|1901|small nuclear RNA, 参与RNA剪接过程，真核生物转录后加工过程中spliceosome复合体的主要成分|
+|sRNA|5|5|在基因表达调控，生物个体发育，代谢及疾病发生等过程中起着重要作用|
+|ribozyme|8|8|核酶，具有催化活性的RNA|
